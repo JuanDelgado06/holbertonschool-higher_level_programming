@@ -5,5 +5,5 @@ touch $NF
 BIN="#!/usr/bin/python3"
 echo $BIN >> $NF
 chmod u+x $NF
-nano $NF
+# nano $NF
 
