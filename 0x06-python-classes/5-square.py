@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Doc to class Squiare"""
+
+
 class Square:
     """Represents a square"""
 
@@ -31,4 +34,3 @@ class Square:
         else:
             for i in range(self.__size):
                 print('#' * self.__size)
-
