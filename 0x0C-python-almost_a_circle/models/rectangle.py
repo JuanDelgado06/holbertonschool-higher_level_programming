@@ -15,3 +15,47 @@ class Rectangle(Base):
         self.x = x
         self.y = y
         super().__init__(id)
+
+    @property
+    def width(self):
+        """Get the width."""
+        return self.__width
+
+    @width.setter
+    def width(self, value):
+        """Set the width."""
+        self.integer_validator('width', value)
+        self.__width = value
+
+    @property
+    def height(self):
+        """Get the height."""
+        return self.__height
+
+    @height.setter
+    def height(self, value):
+        """Set the height."""
+        self.integer_validator('height', value)
+        self.__height = value
+
+    @property
+    def x(self):
+        """Get x."""
+        return self.__x
+
+    @x.setter
+    def x(self, value):
+        """Set x."""
+        self.integer_validator('x', value)
+        self.__x = value
+
+    @property
+    def y(self):
+        """Get y."""
+        return self.__y
+
+    @y.setter
+    def y(self, value):
+        """Set y."""
+        self.integer_validator('y', value)
+        self.__y = value
