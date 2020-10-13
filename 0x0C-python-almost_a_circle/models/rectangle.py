@@ -15,6 +15,12 @@ class Rectangle(Base):
         self.x = x
         self.y = y
         super().__init__(id)
+    
+    def __str__(self):
+        """Print the rectangle attributes."""
+        return ('[Rectangle] (' + str(self.id) + ') ' + str(self.__x) + '/' +
+                str(self.__y) + ' - ' + str(self.__width) + '/' +
+                str(self.__height))
 
     def integer_validator(self, name, value):
         """Validate value."""
