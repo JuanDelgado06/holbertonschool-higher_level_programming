@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ 
-Rectangle class
+Rectangle class.
 """
 from models.base import Base
 
@@ -28,6 +28,11 @@ class Rectangle(Base):
     def area(self):
         """Return the area of the rectangle."""
         return self.__width * self.__height
+    
+    def display(self):
+        """Print the rectangle."""
+        print('\n' * self.__y + (' ' * self.__x + '#' * self.__width + '\n') *
+              self.__height, end='')
 
     @property
     def width(self):
