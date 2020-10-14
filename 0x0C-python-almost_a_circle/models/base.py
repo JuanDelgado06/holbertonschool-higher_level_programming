@@ -24,6 +24,13 @@ class Base:
         if not list_dictionaries or list_dictionaries is None:
             return '[]'
         return json.dumps(list_dictionaries)
+    
+    @staticmethod
+    def from_json_string(json_string):
+        """Return the list of the JSON string representation."""
+        if not json_string or json_string is None:
+            return []
+        return json.loads(json_string)
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
