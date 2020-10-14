@@ -33,15 +33,21 @@ class Base:
         return json.loads(json_string)
 
     @classmethod
-    def save_to_file_csv(cls, list_objs):
-        """Write the CSV representation of list_objs to a file."""
-        filename = cls.__name__ + '.csv'
+    def save_to_file(cls, list_objs):
+        """Write the JSON string representation of list_objs to a file."""
+        filename = cls.__name__ + '.json'
+        dictionary = []
         if list_objs is not None:
-            if cls.__name__ == 'Rectangle':
-                data = [[obj.id, obj.width, obj.height, obj.x, obj.y]
-                        for obj in list_objs]
-            else:
-                data = [[obj.id, obj.size, obj.x, obj.y] for obj in list_objs]
-            with open(filename, 'w', newline='') as f:
-                writer = csv.writer(f)
-                writer.writerows(data)
+            dictionary = [obj.to_dictionary() for obj in list_objs]
+        with open(filename, 'w') as f:
+            f.write(cls.to_json_string(dictionary))
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Return an instance with all attributes already set."""
+        if cls.__name__ == 'Rectangle':
+            new_base = cls(1, 1)
+        else:
+            new_base = cls(1)
+        cls.update(new_base, **dictionary)
+        return new_base
