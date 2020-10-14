@@ -17,3 +17,16 @@ class Square(Rectangle):
         return ('[Square] (' + str(self.id) + ') ' + str(self._Rectangle__x) +
                 '/' + str(self._Rectangle__y) + ' - ' +
                 str(self._Rectangle__width))
+    
+    @property
+    def size(self):
+        """Get the size."""
+        return self._Rectangle__width
+
+    @size.setter
+    def size(self, value):
+        """Set the size."""
+        self.integer_validator('width', value)
+        self.integer_validator('height', value)
+        self._Rectangle__width = value
+        self._Rectangle__height = value
