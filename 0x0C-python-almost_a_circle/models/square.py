@@ -18,6 +18,11 @@ class Square(Rectangle):
                 '/' + str(self._Rectangle__y) + ' - ' +
                 str(self._Rectangle__width))
     
+    def to_dictionary(self):
+        """Return dictionary representation of square."""
+        return {'id': self.id, 'size': self.size, 'x': self._Rectangle__x,
+                'y': self._Rectangle__y}
+    
     @property
     def size(self):
         """Get the size."""
